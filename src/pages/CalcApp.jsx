@@ -2,6 +2,7 @@ import { useState } from "react"
 export const CalcApp = () => {
     const [calc, setCalc] = useState(null)
     const [res, setRes] = useState(null)
+    const ops = ["%", "/", "+", "*", "-", "."]
 
     const clearCalc = () => {
         setRes(null)
@@ -13,12 +14,13 @@ export const CalcApp = () => {
     }
 
     const setPress = (val) => {
-        (calc) ? setCalc(calc + val.toString()) : setCalc(val.toString())
+        if (ops.includes(val) && ops.includes(calc.slice(calc.length - 1, calc.length))) return
+        else (calc) ? setCalc(calc + val.toString()) : setCalc(val.toString())
     }
     const deleteBtn = () => {
         setCalc(calc.slice(0, -1))
-
     }
+
     return (
         <div className="calc-app-container flex align-center justify-center">
             <div className="calc-app ">
@@ -34,7 +36,7 @@ export const CalcApp = () => {
                     <button onClick={() => { setPress(7) }}>7</button>
                     <button onClick={() => { setPress(8) }}>8</button>
                     <button onClick={() => { setPress(9) }}>9</button>
-                    <button className="opr-btn" onClick={() => { setPress("*") }}>X</button>
+                    <button className="opr-btn" onClick={() => { setPress("*") }}>x</button>
                     <button onClick={() => { setPress(4) }}>4</button>
                     <button onClick={() => { setPress(5) }}>5</button>
                     <button onClick={() => { setPress(6) }}>6</button>
