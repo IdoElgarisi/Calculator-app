@@ -1,14 +1,20 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 export const CalcApp = () => {
-    const [calc, setCalc] = useState(null)
-    const [res, setRes] = useState(null)
+    const [calc, setCalc] = useState("")
+    const [res, setRes] = useState("")
     const ops = ["%", "/", "+", "*", "-", "."]
+
+    useEffect(() => {
+        if (calc?.length > 2) {
+            if (calc !== "" && ops.includes(calc.slice(calc.length - 1, calc.length))) return
+            calcRes()
+        }
+    }, [calc])
 
     const clearCalc = () => {
         setRes(null)
         setCalc(null)
     }
-
     const calcRes = () => {
         setRes(eval(calc))
     }
@@ -17,6 +23,7 @@ export const CalcApp = () => {
         if (ops.includes(val) && ops.includes(calc.slice(calc.length - 1, calc.length))) return
         else (calc) ? setCalc(calc + val.toString()) : setCalc(val.toString())
     }
+
     const deleteBtn = () => {
         setCalc(calc.slice(0, -1))
     }
