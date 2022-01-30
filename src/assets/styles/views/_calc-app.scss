@@ -1,0 +1,67 @@
+.app-container {
+    background-color: $main;
+    font-family: robo;
+    .calc-app-container {
+        height: 100vh;
+        .calc-app {
+            border-radius: 7px;
+            border: 1px solid white;
+            margin-top: 20px;
+            background-color: $main;
+            width: 80%;
+            height: 80%;
+        }
+    }
+}
+.res-window-container {
+    height: 40%;
+    background-color: $main;
+    color: white;
+    padding-inline-start: 10px;
+    .eval-nums {
+        font-size: 2.5rem;
+        height: 50%;
+        align-items: center;
+    }
+    .res-nums {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 2rem;
+        height: 50%;
+        align-items: flex-end;
+    }
+    // border: none;
+}
+.nums-container {
+    background-color: $main;
+    color: white;
+    border: 1px solid;
+    height: 60%;
+    width: 100&;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    .opr-btn {
+        background-color: #fa980b;
+        border-radius: 8px;
+        border: 1px solid;
+        font-size: 1.5rem;
+    }
+    button {
+        font-size: 1.5rem;
+        border-radius: 8px;
+        background-color: $main;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        border: 1px solid;
+        text-align: center;
+        &:hover {
+            background-color: lighten($color: $main, $amount: 10%);
+        }
+    }
+}
