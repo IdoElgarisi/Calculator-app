@@ -32,7 +32,7 @@ export const CalcApp = () => {
         <div className="calc-app-container flex align-center justify-center">
             <div className="calc-app ">
                 <section className="res-window-container flex column">
-                    <div className="eval-nums flex "><p>{calc} </p></div>
+                    <div className="eval-nums flex"><p>{calc} </p></div>
                     <div className="res-nums flex"><p>{res?.toString()?.length > 15 ? res.toString().slice(0, 15) : res}</p></div>
                 </section>
                 <section className="nums-container">
