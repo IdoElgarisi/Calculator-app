@@ -1,15 +1,87 @@
-// Setup
-@import "setup/variables";
-@import "setup/functions";
-@import "setup/mixins";
-@import "setup/typography";
-
-// Basics
 @import "basics/helpers";
-@import "basics/layout";
 @import "basics/base";
 
-// Cmps
+@font-face {
+    font-family: robo;
+    src: url("../fonts/Roboto-Regular.ttf");
+}
 
-//Views
-@import "./views/calc-app";
+.app-container {
+    background-color: #111;
+    font-family: robo;
+    height: 100vh;
+    .calc-app-container {
+        height: 70vh;
+        .calc-app {
+            border-radius: 7px;
+            border: 1px solid white;
+            margin-top: 20px;
+            background-color: #111;
+            width: 100%;
+            height: 100%;
+            max-width: 300px;
+            max-height: 500px;
+        }
+    }
+}
+.res-window-container {
+    height: 40%;
+    max-height: 140px;
+    background-color: #222;
+    padding-inline-start: 10px;
+    .eval-nums {
+        font-size: 2.5rem;
+        height: 50%;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.74);
+    }
+    .res-nums {
+        color: white;
+        font-size: 2rem;
+        height: 50%;
+        align-items: flex-end;
+    }
+    // border: none;
+}
+.nums-container {
+    background-color: #111;
+    color: white;
+    border: 1px solid;
+    height: 60%;
+    height: 360px;
+    width: 100&;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    .opr-btn {
+        background-color: #fa980b;
+        border-radius: 8px;
+        border: 1px solid;
+        font-size: 1.5rem;
+    }
+    button {
+        font-size: 1.5rem;
+        border-radius: 8px;
+        background-color: #111;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border: 1px solid;
+        text-align: center;
+    }
+}
+
+@media (min-width: 500px) {
+    .opr-btn:hover {
+        background-color: lighten($color: #fa980b, $amount: 10%);
+    }
+    .num-btn:hover {
+        background-color: lighten($color: #111, $amount: 10%);
+    }
+}
