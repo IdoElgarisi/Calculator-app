@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+
 export const CalcApp = () => {
     const [calc, setCalc] = useState("")
     const [res, setRes] = useState("")
