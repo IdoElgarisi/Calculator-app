@@ -2,19 +2,19 @@ import { useEffect, useState } from "react"
 export const CalcApp = () => {
     const [calc, setCalc] = useState("")
     const [res, setRes] = useState("")
-    const ops = ["%", "/", "+", "*", "-", "."]
+    const ops = ["%", "/", "+", "*", "-"]
 
     useEffect(() => {
-        if (calc?.length > 2) {
-            if (calc !== "" && ops.includes(calc.slice(calc.length - 1, calc.length))) return
-            calcRes()
-        }
+        calc && ops.map(op => {
+            if (calc.includes(op) && !ops.includes(calc[calc.length - 1])) calcRes();
+        })
     }, [calc])
 
     const clearCalc = () => {
         setRes(null)
         setCalc(null)
     }
+
     const calcRes = () => {
         setRes(eval(calc))
     }
